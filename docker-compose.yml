@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  inventory-service:
+    build: ./inventory_service
+    image: murmurpur/inventory-service:latest
+    ports:
+      - "5000:5000"
+
+  order-service:
+    build: ./order_service
+    image: murmurpur/inventory-service:latest
+    ports:
+      - "6000:6000"
+    depends_on:
+      - inventory-service
